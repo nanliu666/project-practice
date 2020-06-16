@@ -25,17 +25,23 @@
       }
     },
     mounted() {
-      this.$on('validate', this.validate)
+      this.$on('validate', () => {
+        this.validate
+      })
     },
     methods: {
       validate() {
         const value = this.form.model[this.prop]
         const rules = this.form.rules[this.prop]
-        const desc = {[this.prop]: rules}
+        const desc = {
+          [this.prop]: rules
+        }
         const schema = new Schema(desc)
         // return的是一个promise对象
-        return schema.validate({[this.prop]: value}, error => {
-          if(error) {
+        return schema.validate({
+          [this.prop]: value
+        }, error => {
+          if (error) {
             this.errMassage = error[0].message
           } else {
             this.errMassage = ''
