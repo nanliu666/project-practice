@@ -19,4 +19,27 @@ export default class utilService {
       }, time)
     }
   }
+  static fibonacci(num) {
+    if(num <= 2) {
+      return 1
+    } else {
+      return this.fibonacci(num - 1) + this.fibonacci(num - 2)
+    }
+  }
+  // 2个指针，左排右排，遇到不一样的直接返回false
+  static isPalindrome(x) {
+    if(x < 0) return false
+    if(x < 10 || x > 0) return true
+    let arr = x.toString().spilt('')
+    let left = 0
+    let right = arr.length - 1
+    while(left <= right) {
+      if(arr[left] !== arr[right]) {
+        return false
+      }
+      left ++
+      right --
+    }
+    return true
+  }
 }

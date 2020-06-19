@@ -16,7 +16,9 @@
     data() {
       return {}
     },
-    created() {},
+    created() {
+      console.log('斐波那契数列==', utilService.fibonacci(3))
+    },
     methods: {
       throlleFun: utilService.throlle(function() {
         console.log('触发节流，在规定时间内才能触发一次')
